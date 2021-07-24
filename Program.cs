@@ -35,6 +35,20 @@ namespace SmallestPositiveInteger
 
             return previousSmallest + 1;
         }
+
+        public static int Smallest(int[] numbers) 
+        {
+            int small = numbers[0];
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                if (numbers[i] < small)
+                {
+                    small = numbers[i];
+                }
+            }
+
+            return small;
+        }
     }
 
     class Program
@@ -58,6 +72,10 @@ namespace SmallestPositiveInteger
             A = new int[] { -1, -3 };
             var result3 = Util.SmallestPositiveInteger(A);
             Console.WriteLine($"A: {result3}");
+
+            A = new int[] { -3, -1 };
+            var result4 = Util.Smallest(A);
+            Console.WriteLine($"A: {result4}");
         }
     }
 }
